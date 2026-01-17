@@ -1,0 +1,2 @@
+This project is a NestJS application developed for the Dicsys Academy training program.
+It aims to demonstrate the implementation of scalable server-side architectures using TypeScript.
