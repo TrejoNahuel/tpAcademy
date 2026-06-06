@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: tu_contraseña_de_mariadb # Cambia esto por tu pass real
+      MYSQL_DATABASE: fifa_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      # Descomenta la siguiente línea si exportaste el init.sql en el Paso 1
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=tu_contraseña_de_mariadb # Cambia esto
+      - DB_NAME=fifa_db
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

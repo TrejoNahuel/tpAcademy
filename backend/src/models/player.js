@@ -2,28 +2,24 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Player = sequelize.define('Player', {
-    // Ajusta estos campos según tu tabla real en MariaDB
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    long_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    nationality_name: {
-        type: DataTypes.STRING
-    },
-    overall: {
-        type: DataTypes.INTEGER
-    },
-    club_name: {
-        type: DataTypes.STRING
-    }
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    long_name: { type: DataTypes.STRING, allowNull: false },
+    nationality_name: { type: DataTypes.STRING },
+    club_name: { type: DataTypes.STRING },
+    player_positions: { type: DataTypes.STRING },
+    overall: { type: DataTypes.INTEGER },
+    pace: { type: DataTypes.INTEGER },
+    shooting: { type: DataTypes.INTEGER },
+    passing: { type: DataTypes.INTEGER },
+    dribbling: { type: DataTypes.INTEGER }, // <-- Nueva
+    defending: { type: DataTypes.INTEGER }, // <-- Nueva
+    physic: { type: DataTypes.INTEGER },    // <-- Nueva
+    player_face_url: { type: DataTypes.STRING },
+    gender: { type: DataTypes.STRING },
+    fifa_version: { type: DataTypes.STRING }
 }, {
-    tableName: 'players', // Nombre exacto de tu tabla en la BD
-    timestamps: false     // Pon 'true' si tu tabla tiene columnas 'createdAt' y 'updatedAt'
+    tableName: 'players', 
+    timestamps: false     
 });
 
 module.exports = Player;

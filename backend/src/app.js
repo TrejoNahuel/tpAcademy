@@ -1,19 +1,21 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Middlewares
+// Importaciones
+const authRoutes = require('./routes/authRoutes');
+const playerRoutes = require('./routes/playerRoutes');
+const authMiddleware = require('../middleware/auth'); // Asegúrate que esta ruta sea la correcta
+
+// 1. Middlewares globales (SIEMPRE van arriba)
 app.use(cors());
 app.use(express.json());
 
-// Rutas (Asegúrate de que esta ruta exista en src/routes/playerRoutes.js)
-const playerRoutes = require('../src/routes/playerRoutes');
-app.use('/api', playerRoutes);
+// 2. Rutas públicas (No requieren login)
+app.use('/api/auth', authRoutes);
 
-const PORT = process.env.PORT || 3000;
+// 3. Rutas protegidas (Requieren el token)
+app.use('/api/players', authMiddleware, playerRoutes); 
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-    console.log(`DEBUG: DB_NAME: ${process.env.DB_NAME}`);
-});
+const PORT = 3000;
+app.listen(PORT, () => console.log(`Servidor seguro corriendo en el puerto ${PORT}`));

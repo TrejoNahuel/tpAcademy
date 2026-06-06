@@ -1,5 +1,22 @@
-node_modules/
+cat << 'EOF' > .gitignore
+
+# Angular
+dist/
+.angular/
+
+# Entorno y BD
 .env
+init.sql
+db_data/
+
+# OS
 .DS_Store
-logs/
+EOF
+
+# Node
+node_modules/
+dist/
+.angular/
+.env
+db_data/
 *.log

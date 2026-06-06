@@ -1,0 +1,24 @@
+<main class="dashboard">
+  <h1>Dashboard: Player Analytics</h1>
+  <div class="grid">
+    @for (player of players; track player.id) {
+      <div class="player-card">
+        <div class="player-header">
+          <h2>{{ player.long_name }}</h2>
+          <span class="overall-badge">{{ player.overall }}</span>
+        </div>
+        
+        <div class="stats-group">
+          <label>Progreso de Carrera</label>
+          <progress [value]="player.overall" max="100"></progress>
+          
+          <label>Estadísticas Clave</label>
+          <div class="stats-row">
+            <span>Club: {{ player.club_name }}</span>
+            <span>Nac: {{ player.nationality_name }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</main>

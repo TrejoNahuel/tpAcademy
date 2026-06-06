@@ -1,0 +1,7 @@
+.card {
+    background-color: #1b2836;
+    border: 1px solid #2e3a46;
+    padding: 1rem;
+    border-left: 4px solid #ff4655; /* El toque Valorant */
+    backdrop-filter: blur(10px);
+}
