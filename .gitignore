@@ -1,4 +1,8 @@
 cat << 'EOF' > .gitignore
+# Node
+node_modules/
+npm-debug.log
+*.log
 
 # Angular
 dist/
@@ -6,17 +10,8 @@ dist/
 
 # Entorno y BD
 .env
-init.sql
 db_data/
 
 # OS
 .DS_Store
 EOF
-
-# Node
-node_modules/
-dist/
-.angular/
-.env
-db_data/
-*.log

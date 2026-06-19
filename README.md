@@ -14,6 +14,7 @@ Proyecto desarrollado como parte de la formación en Full Stack. Este sistema pe
 * Pipeline de extracción y transformación de datos.
 * Dashboards interactivos para el análisis de métricas técnicas.
 * Diseño modular siguiendo buenas prácticas de Ingeniería de Software.
+
 ## Decisiones Técnicas y Funcionales
 
 Durante el desarrollo del proyecto, se tomaron las siguientes decisiones de arquitectura:
